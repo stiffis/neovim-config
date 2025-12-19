@@ -1,0 +1,21 @@
+# Lazy.nvim lock file (opcional: algunos lo ignoran, otros lo commitean)
+# Descomenta la siguiente línea si NO quieres versionar las versiones exactas:
+# lazy-lock.json
+
+# LSP auto-generado
+.luarc.json
+
+# Archivos temporales de Neovim
+*.swp
+*.swo
+*.swn
+*~
+.*.sw?
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+.Trash-*
+
+# Logs
+*.log
