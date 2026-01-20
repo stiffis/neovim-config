@@ -1,8 +1,91 @@
 -- Typst support for Neovim
 -- Plugin: typst.vim (syntax, conceal, basic commands)
 -- LSP: tinymist (already installed via Mason)
+-- Preview: typst-preview.nvim (browser-based preview with forward/backward search)
 
 return {
+  -- ============================================================================
+  -- TYPST PREVIEW (Browser-based with bidirectional sync)
+  -- ============================================================================
+  {
+    "chomosuke/typst-preview.nvim",
+    ft = "typst",
+    build = function()
+      require("typst-preview").update()
+    end,
+    opts = {
+      -- ============================================================================
+      -- CONFIGURACIÓN COMPLETA DE TYPST-PREVIEW.NVIM
+      -- Documentación: https://github.com/chomosuke/typst-preview.nvim
+      -- ============================================================================
+      
+      -- Debug logging (guarda logs en stdpath/data/typst-preview/log.txt)
+      debug = false,
+      
+      -- Comando para abrir navegador (string con %s como placeholder)
+      -- Auto-detecta navegador disponible: Chromium > Chrome Stable > Chrome > Firefox
+      -- Sin --new-window: abre pestaña en ventana existente (o ventana nueva si no hay ninguna)
+      open_cmd = (vim.fn.executable("chromium") == 1 
+        and "chromium %s" 
+        or (vim.fn.executable("google-chrome-stable") == 1 
+          and "google-chrome-stable %s"
+          or (vim.fn.executable("google-chrome") == 1 
+            and "google-chrome %s"
+            or "firefox %s"))),
+      
+      -- Puerto del servidor (0 = aleatorio para evitar conflictos)
+      port = 0,
+      
+      -- Host del servidor
+      host = '127.0.0.1',
+      
+      -- Inversión de colores en el preview
+      -- Opciones: 'never', 'auto', 'always'
+      invert_colors = 'never',
+      
+      -- ⭐ SEGUIMIENTO AUTOMÁTICO DEL CURSOR ⭐
+      -- false = el preview NO sigue el cursor automáticamente
+      -- true = el preview sigue el cursor mientras escribes
+      -- Usa ,lt para toggle, ,lF para activar, ,ln para desactivar
+      follow_cursor = false,
+      
+      -- Binarios de dependencias
+      -- nil = auto-detecta desde PATH (Mason)
+      dependencies_bin = {
+        ['tinymist'] = nil,
+        ['websocat'] = nil,
+      },
+      
+      -- Argumentos extra para el previewer (si necesitas)
+      extra_args = nil,
+      
+      -- Función para determinar el root del proyecto
+      get_root = function(path_of_main_file)
+        local root = os.getenv('TYPST_ROOT')
+        if root then
+          return root
+        end
+        
+        -- Buscar marcadores de proyecto (typst.toml, .git)
+        local main_dir = vim.fs.dirname(vim.fn.fnamemodify(path_of_main_file, ':p'))
+        local found = vim.fs.find({ 'typst.toml', '.git' }, { path = main_dir, upward = true })
+        if #found > 0 then
+          return vim.fs.dirname(found[1])
+        end
+        
+        return main_dir
+      end,
+      
+      -- Función para determinar el archivo principal
+      get_main_file = function(path_of_buffer)
+        return path_of_buffer
+      end,
+    },
+  },
+  
+  -- ============================================================================
+  -- TYPST SYNTAX & BASIC FEATURES
+  -- ============================================================================
   {
     "kaarmu/typst.vim",
     ft = "typst",
@@ -139,6 +222,34 @@ return {
           end, 'View PDF')
           
           -- ========================================================================
+          -- PREVIEW (Browser-based with forward/backward search)
+          -- ========================================================================
+          
+          -- Start preview in browser (Chrome/Chromium)
+          map('n', '<localleader>lp', ':TypstPreview<CR>', 'Preview (browser)')
+          
+          -- Stop preview server
+          map('n', '<localleader>lP', ':TypstPreviewStop<CR>', 'Stop Preview')
+          
+          -- Sync preview (forward search - cursor to preview)
+          map('n', '<localleader>ls', ':TypstPreviewSync<CR>', 'Sync Preview (forward)')
+          
+          -- Toggle follow cursor (on/off)
+          map('n', '<localleader>lt', ':TypstPreviewFollowCursorToggle<CR>', 'Toggle Follow Cursor')
+          
+          -- Enable follow cursor
+          map('n', '<localleader>lF', function()
+            require('typst-preview').set_follow_cursor(true)
+            vim.notify('Follow cursor: ON', vim.log.levels.INFO)
+          end, 'Enable Follow Cursor')
+          
+          -- Disable follow cursor
+          map('n', '<localleader>ln', function()
+            require('typst-preview').set_follow_cursor(false)
+            vim.notify('Follow cursor: OFF', vim.log.levels.INFO)
+          end, 'Disable Follow Cursor')
+          
+          -- ========================================================================
           -- LSP FEATURES
           -- ========================================================================
           
@@ -178,7 +289,13 @@ return {
               { "<localleader>l", group = "Typst", buffer = ev.buf },
               { "<localleader>ll", desc = "Watch & Compile", buffer = ev.buf },
               { "<localleader>lc", desc = "Compile", buffer = ev.buf },
-              { "<localleader>lv", desc = "View PDF", buffer = ev.buf },
+              { "<localleader>lv", desc = "View PDF (Zathura)", buffer = ev.buf },
+              { "<localleader>lp", desc = "Preview (browser)", buffer = ev.buf },
+              { "<localleader>lP", desc = "Stop Preview", buffer = ev.buf },
+              { "<localleader>ls", desc = "Sync Preview", buffer = ev.buf },
+              { "<localleader>lt", desc = "Toggle Follow Cursor", buffer = ev.buf },
+              { "<localleader>lF", desc = "Enable Follow Cursor", buffer = ev.buf },
+              { "<localleader>ln", desc = "Disable Follow Cursor", buffer = ev.buf },
               { "<localleader>lr", desc = "Rename", buffer = ev.buf },
               { "<localleader>la", desc = "Code Actions", buffer = ev.buf },
               { "<localleader>lf", desc = "Format", buffer = ev.buf },

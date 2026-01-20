@@ -163,17 +163,40 @@ See [`lua/plugins/`](./lua/plugins/) directory for all plugin configurations.
 
 ### Typst
 
+#### Compilation & Viewing
+
 | Key   | Mode   | Action              |
 | ----- | ------ | ------------------- |
 | `,ll` | Normal | Watch & Compile     |
 | `,lc` | Normal | Compile once        |
-| `,lv` | Normal | View PDF            |
+| `,lv` | Normal | View PDF (Zathura)  |
+
+#### Browser Preview (with bidirectional sync)
+
+| Key   | Mode   | Action                      |
+| ----- | ------ | --------------------------- |
+| `,lp` | Normal | Start preview (browser)     |
+| `,lP` | Normal | Stop preview                |
+| `,ls` | Normal | Sync preview (forward)      |
+| `,lt` | Normal | Toggle follow cursor        |
+| `,lF` | Normal | Enable follow cursor        |
+| `,ln` | Normal | Disable follow cursor       |
+
+#### LSP Features
+
+| Key   | Mode   | Action              |
+| ----- | ------ | ------------------- |
 | `,lf` | Normal | Format document     |
 | `,lr` | Normal | Rename symbol       |
 | `,la` | Normal | Code actions        |
+| `,li` | Normal | LSP info            |
+
+#### Diagnostics
+
+| Key   | Mode   | Action              |
+| ----- | ------ | ------------------- |
 | `,le` | Normal | Open error list     |
 | `,lE` | Normal | Close error list    |
-| `,li` | Normal | LSP info            |
 
 All default AstroNvim keymaps are available. Press `<leader>` to see which-key menu.
 
