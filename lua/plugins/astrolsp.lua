@@ -11,7 +11,7 @@ return {
     -- Configuration table of features provided by AstroLSP
     features = {
       codelens = true,        -- enable/disable codelens refresh on start
-      inlay_hints = false,    -- enable/disable inlay hints on start
+      inlay_hints = true,     -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
@@ -43,6 +43,88 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      
+      -- ============================================================================
+      -- TINYMIST LSP CONFIGURATION (Typst Language Server)
+      -- ============================================================================
+      tinymist = {
+        settings = {
+          -- ========================================================================
+          -- EXPORT / COMPILATION SETTINGS
+          -- ========================================================================
+          
+          -- Automatically export to PDF on save
+          -- Options: "onSave", "onType", "never"
+          -- exportPdf = "onSave",  -- Uncomment to enable auto-export on save
+          
+          -- Output path for compiled PDFs
+          -- Variables: $root (project root), $dir (file dir), $name (filename)
+          outputPath = "$root/$dir/$name",
+          
+          -- ========================================================================
+          -- FORMATTING SETTINGS
+          -- ========================================================================
+          
+          -- Formatter to use (typstfmt or typstyle)
+          -- You have typstyle installed via Mason
+          formatterMode = "typstyle",
+          
+          -- ========================================================================
+          -- PREVIEW SETTINGS
+          -- ========================================================================
+          
+          -- Preview configuration
+          -- TODO: Configure preview settings when ready to use browser-based preview
+          -- previewFeature = "enable",
+          -- previewArgs = {},
+          
+          -- ========================================================================
+          -- SEMANTIC TOKENS (Syntax Highlighting)
+          -- ========================================================================
+          
+          -- Enable semantic token highlighting
+          semanticTokens = "enable",
+          
+          -- ========================================================================
+          -- INLAY HINTS
+          -- ========================================================================
+          
+          -- Show inlay hints for inferred types
+          inlayHints = {
+            parameterNames = "enable",
+            functionReturnTypes = "enable",
+          },
+          
+          -- ========================================================================
+          -- COMPLETION SETTINGS
+          -- ========================================================================
+          
+          -- Enable completion
+          completion = {
+            -- Trigger completion automatically
+            triggerOnSnippetPlaceholders = true,
+          },
+          
+          -- ========================================================================
+          -- DIAGNOSTICS SETTINGS
+          -- ========================================================================
+          
+          -- Enable diagnostics (error checking)
+          diagnostics = {
+            enable = true,
+          },
+        },
+        
+        -- ========================================================================
+        -- LSP CAPABILITIES
+        -- ========================================================================
+        
+        -- Ensure tinymist provides formatting capability
+        on_attach = function(client, bufnr)
+          -- Enable formatting via LSP for typst files
+          client.server_capabilities.documentFormattingProvider = true
+        end,
+      },
     },
     -- customize how language servers are attached
     handlers = {

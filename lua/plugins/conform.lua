@@ -14,6 +14,7 @@ return {
       json = { "prettier" },
       yaml = { "prettier" },
       markdown = { "prettier" },
+      typst = { "typstyle" },
     },
     format_on_save = {
       timeout_ms = 1000, -- 1 segundo de tiempo límite (latexindent puede ser lento a veces)
