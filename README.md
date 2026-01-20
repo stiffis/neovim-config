@@ -14,6 +14,33 @@ _A carefully crafted Neovim configuration built on top of AstroNvim v5_
 
 ---
 
+## 📸 Screenshots
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+_Startup screen with custom configuration_
+
+### Coding Experience
+
+![Coding Experience](screenshots/coding.png)
+_LSP integration with autocompletion and syntax highlighting_
+
+### Debug with DAP
+
+![Debug DAP](screenshots/debug-dap.png)
+_Debugging session using nvim-dap_
+
+### LaTeX with Zathura
+
+![LaTeX Preview](screenshots/latex-zathura.png)
+_VimTeX compilation with live PDF preview in Zathura_
+
+### Typst with Browser Preview
+
+![Typst Preview](screenshots/typst-preview.png)
+_Typst document with live browser preview and bidirectional sync_
+
 ## ✨ Features
 
 - 🎨 **Beautiful UI** - Kanagawa theme with custom highlights
@@ -165,38 +192,38 @@ See [`lua/plugins/`](./lua/plugins/) directory for all plugin configurations.
 
 #### Compilation & Viewing
 
-| Key   | Mode   | Action              |
-| ----- | ------ | ------------------- |
-| `,ll` | Normal | Watch & Compile     |
-| `,lc` | Normal | Compile once        |
-| `,lv` | Normal | View PDF (Zathura)  |
+| Key   | Mode   | Action             |
+| ----- | ------ | ------------------ |
+| `,ll` | Normal | Watch & Compile    |
+| `,lc` | Normal | Compile once       |
+| `,lv` | Normal | View PDF (Zathura) |
 
 #### Browser Preview (with bidirectional sync)
 
-| Key   | Mode   | Action                      |
-| ----- | ------ | --------------------------- |
-| `,lp` | Normal | Start preview (browser)     |
-| `,lP` | Normal | Stop preview                |
-| `,ls` | Normal | Sync preview (forward)      |
-| `,lt` | Normal | Toggle follow cursor        |
-| `,lF` | Normal | Enable follow cursor        |
-| `,ln` | Normal | Disable follow cursor       |
+| Key   | Mode   | Action                  |
+| ----- | ------ | ----------------------- |
+| `,lp` | Normal | Start preview (browser) |
+| `,lP` | Normal | Stop preview            |
+| `,ls` | Normal | Sync preview (forward)  |
+| `,lt` | Normal | Toggle follow cursor    |
+| `,lF` | Normal | Enable follow cursor    |
+| `,ln` | Normal | Disable follow cursor   |
 
 #### LSP Features
 
-| Key   | Mode   | Action              |
-| ----- | ------ | ------------------- |
-| `,lf` | Normal | Format document     |
-| `,lr` | Normal | Rename symbol       |
-| `,la` | Normal | Code actions        |
-| `,li` | Normal | LSP info            |
+| Key   | Mode   | Action          |
+| ----- | ------ | --------------- |
+| `,lf` | Normal | Format document |
+| `,lr` | Normal | Rename symbol   |
+| `,la` | Normal | Code actions    |
+| `,li` | Normal | LSP info        |
 
 #### Diagnostics
 
-| Key   | Mode   | Action              |
-| ----- | ------ | ------------------- |
-| `,le` | Normal | Open error list     |
-| `,lE` | Normal | Close error list    |
+| Key   | Mode   | Action           |
+| ----- | ------ | ---------------- |
+| `,le` | Normal | Open error list  |
+| `,lE` | Normal | Close error list |
 
 All default AstroNvim keymaps are available. Press `<leader>` to see which-key menu.
 
@@ -268,28 +295,6 @@ Open Neovim and run `:Mason`, then install servers manually.
 ```vim
 :ConformInfo
 ```
-
-## 📸 Screenshots
-
-### Dashboard
-
-![Dashboard](screenshots/dashboard.png)
-_Startup screen with custom configuration_
-
-### Coding Experience
-
-![Coding Experience](screenshots/coding.png)
-_LSP integration with autocompletion and syntax highlighting_
-
-### Debug with DAP
-
-![Debug DAP](screenshots/debug-dap.png)
-_Debugging session using nvim-dap_
-
-### LaTeX with Zathura
-
-![LaTeX Preview](screenshots/latex-zathura.png)
-_VimTeX compilation with live PDF preview in Zathura_
 
 ## 🤝 Contributing
 
