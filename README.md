@@ -19,7 +19,7 @@ _A carefully crafted Neovim configuration built on top of AstroNvim v5_
 - 🎨 **Beautiful UI** - Kanagawa theme with custom highlights
 - 🧠 **Smart Autocompletion** - Blink.cmp with LSP integration
 - 📝 **Format on Save** - Conform.nvim for automatic code formatting
-- 🔍 **Powerful LSP** - Pre-configured for Go, Python, C/C++, TypeScript, LaTeX, Java
+- 🔍 **Powerful LSP** - Pre-configured for Go, Python, C/C++, TypeScript, LaTeX, Typst, Java
 - 📦 **70+ Plugins** - Carefully selected and optimized
 - ⚡ **Fast Startup** - Lazy loading for optimal performance
 - 🎯 **Custom Snippets** - Workflow-optimized code snippets
@@ -35,7 +35,8 @@ _A carefully crafted Neovim configuration built on top of AstroNvim v5_
 - **Python** >= 3.10 (for Python LSP)
 - **ripgrep** (for telescope grep)
 - **lazygit** (optional, for Git integration)
-- **zathura** (optional, for LaTeX PDF preview)
+- **zathura** (optional, for LaTeX and Typst PDF preview)
+- **typst** (optional, for Typst document compilation)
 
 ## 🚀 Installation
 
@@ -100,6 +101,8 @@ Install the tools you need manually, or let AstroNvim install them automatically
 ### Language-Specific
 
 - [vimtex](https://github.com/lervag/vimtex) - LaTeX support with live preview
+- [typst.vim](https://github.com/kaarmu/typst.vim) - Typst support with syntax highlighting and conceal
+- **tinymist** - Typst LSP for autocompletion, diagnostics, and formatting
 - [nvim-java](https://github.com/nvim-java/nvim-java) - Java development (via AstroCommunity)
 - [tailwind-tools.nvim](https://github.com/luckasRanarison/tailwind-tools.nvim) - TailwindCSS utilities
 - [tailwindcss-colorizer-cmp](https://github.com/roobert/tailwindcss-colorizer-cmp.nvim) - Color previews
@@ -157,6 +160,20 @@ See [`lua/plugins/`](./lua/plugins/) directory for all plugin configurations.
 | `\\ll` | Normal | Compile LaTeX         |
 | `\\lv` | Normal | View PDF              |
 | `\\lc` | Normal | Clean auxiliary files |
+
+### Typst
+
+| Key   | Mode   | Action              |
+| ----- | ------ | ------------------- |
+| `,ll` | Normal | Watch & Compile     |
+| `,lc` | Normal | Compile once        |
+| `,lv` | Normal | View PDF            |
+| `,lf` | Normal | Format document     |
+| `,lr` | Normal | Rename symbol       |
+| `,la` | Normal | Code actions        |
+| `,le` | Normal | Open error list     |
+| `,lE` | Normal | Close error list    |
+| `,li` | Normal | LSP info            |
 
 All default AstroNvim keymaps are available. Press `<leader>` to see which-key menu.
 
