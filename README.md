@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Stiff's Neovim Configuration
+# Stiff's Neovim Configuration
 
 [![Neovim](https://img.shields.io/badge/Neovim-0.11+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://neovim.io)
 [![AstroNvim](https://img.shields.io/badge/AstroNvim-v5-orange?style=flat-square)](https://github.com/AstroNvim/AstroNvim)
@@ -8,13 +8,13 @@
 
 _A carefully crafted Neovim configuration built on top of AstroNvim v5_
 
-[Features](#-features) • [Installation](#-installation) • [Plugins](#-plugins) • [Keymaps](#%EF%B8%8F-keymaps) • [Screenshots](#-screenshots)
+[Features](#features) • [Installation](#installation) • [Plugins](#plugins) • [Keymaps](#keymaps) • [Screenshots](#screenshots)
 
 </div>
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Dashboard
 
@@ -41,19 +41,19 @@ _VimTeX compilation with live PDF preview in Zathura_
 ![Typst Preview](screenshots/typst-preview.png)
 _Typst document with live browser preview and bidirectional sync_
 
-## ✨ Features
+## Features
 
-- 🎨 **Beautiful UI** - Kanagawa theme with custom highlights
-- 🧠 **Smart Autocompletion** - Blink.cmp with LSP integration
-- 📝 **Format on Save** - Conform.nvim for automatic code formatting
-- 🔍 **Powerful LSP** - Pre-configured for Go, Python, C/C++, TypeScript, LaTeX, Typst, Java
-- 📦 **70+ Plugins** - Carefully selected and optimized
-- ⚡ **Fast Startup** - Lazy loading for optimal performance
-- 🎯 **Custom Snippets** - Workflow-optimized code snippets
-- 🤝 **Live Sharing** - Built-in collaborative editing support
-- 📊 **Time Tracking** - Custom timelimit plugin for project deadlines
+- **Beautiful UI** - Kanagawa theme with custom highlights
+- **Smart Autocompletion** - Blink.cmp with LSP integration
+- **Format on Save** - Conform.nvim for automatic code formatting
+- **Powerful LSP** - Pre-configured for Go, Python, C/C++, TypeScript, LaTeX, Typst, Java
+- **70+ Plugins** - Carefully selected and optimized
+- **Fast Startup** - Lazy loading for optimal performance
+- **Custom Snippets** - Workflow-optimized code snippets
+- **Live Sharing** - Built-in collaborative editing support
+- **Time Tracking** - Custom timelimit plugin for project deadlines
 
-## 📋 Requirements
+## Requirements
 
 - **Neovim** >= 0.10.0 (0.11+ recommended)
 - **Git** >= 2.19.0
@@ -65,9 +65,9 @@ _Typst document with live browser preview and bidirectional sync_
 - **zathura** (optional, for LaTeX and Typst PDF preview)
 - **typst** (optional, for Typst document compilation)
 
-## 🚀 Installation
+## Installation
 
-### 1️⃣ Backup existing configuration
+### 1. Backup existing configuration
 
 ```bash
 mv ~/.config/nvim ~/.config/nvim.bak
@@ -76,13 +76,13 @@ mv ~/.local/state/nvim ~/.local/state/nvim.bak
 mv ~/.cache/nvim ~/.cache/nvim.bak
 ```
 
-### 2️⃣ Clone this repository
+### 2. Clone this repository
 
 ```bash
 git clone https://github.com/stiffis/neovim-config ~/.config/nvim
 ```
 
-### 3️⃣ Start Neovim
+### 3. Start Neovim
 
 ```bash
 nvim
@@ -90,7 +90,7 @@ nvim
 
 Lazy.nvim will automatically install all plugins on first launch.
 
-### 4️⃣ Install LSP servers and tools (optional)
+### 4. Install LSP servers and tools (optional)
 
 Open Neovim and run:
 
@@ -100,7 +100,7 @@ Open Neovim and run:
 
 Install the tools you need manually, or let AstroNvim install them automatically when you open files.
 
-## 🔌 Plugins
+## Plugins
 
 ### Core Framework
 
@@ -144,7 +144,7 @@ Install the tools you need manually, or let AstroNvim install them automatically
 
 See [`lua/plugins/`](./lua/plugins/) directory for all plugin configurations.
 
-## ⌨️ Keymaps
+## Keymaps
 
 ### General
 
@@ -227,7 +227,7 @@ See [`lua/plugins/`](./lua/plugins/) directory for all plugin configurations.
 
 All default AstroNvim keymaps are available. Press `<leader>` to see which-key menu.
 
-## 🎨 Customization
+## Customization
 
 ### Changing the colorscheme
 
@@ -253,7 +253,7 @@ formatters_by_ft = {
 
 Open Neovim and run `:Mason`, then install servers manually.
 
-## 📂 Structure
+## Structure
 
 ```
 ~/.config/nvim/
@@ -275,7 +275,7 @@ Open Neovim and run `:Mason`, then install servers manually.
 └── README.md                 # This file
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Plugins not loading
 
@@ -296,15 +296,15 @@ Open Neovim and run `:Mason`, then install servers manually.
 :ConformInfo
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Feel free to fork and customize for your own use. This is a personal configuration, but suggestions are welcome!
 
-## 📝 License
+## License
 
 MIT License - feel free to use this configuration as a starting point for your own setup.
 
-## 🙏 Credits
+## Credits
 
 - [AstroNvim](https://github.com/AstroNvim/AstroNvim) - Amazing Neovim distribution
 - [Neovim](https://neovim.io/) - The best text editor
@@ -314,8 +314,8 @@ MIT License - feel free to use this configuration as a starting point for your o
 
 <div align="center">
 
-**Made with ❤️ and Lua**
+**Made with love and Lua**
 
-[⬆ Back to Top](#-stiffs-neovim-configuration)
+[Back to Top](#stiffs-neovim-configuration)
 
 </div>
