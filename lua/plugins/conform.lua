@@ -17,7 +17,7 @@ return {
       typst = { "typstyle" },
     },
     format_on_save = {
-      timeout_ms = 1000, -- 1 segundo de tiempo límite (latexindent puede ser lento a veces)
+      timeout_ms = 3000, -- 1 segundo de tiempo límite (latexindent puede ser lento a veces)
       lsp_fallback = true,
     },
   },
