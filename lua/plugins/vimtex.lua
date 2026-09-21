@@ -46,6 +46,7 @@
 return {
   {
     "lervag/vimtex",
+    tag = "v2.18",
     ft = { "tex", "plaintex", "latex" }, -- solo carga al abrir archivos LaTeX
     -- las variables globales de vimtex deben fijarse ANTES de cargar el plugin,
     -- por eso van en `init` (lazy lo ejecuta en el arranque).
