@@ -12,10 +12,12 @@ return {
         -- install language servers
         "lua-language-server",
         "texlab",
+        "tinymist",
 
         -- install formatters
         "stylua",
         "latexindent",
+        "typstyle",
         "clang-format",
         "prettier",
         "isort",
