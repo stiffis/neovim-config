@@ -1,9 +1,10 @@
 return {
   "luckasRanarison/tailwind-tools.nvim",
   name = "tailwind-tools",
+  ft = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue", "svelte", "astro" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
-    "nvim-telescope/telescope.nvim",
+    { "nvim-telescope/telescope.nvim", lazy = true },
     "neovim/nvim-lspconfig",
   },
   opts = {
