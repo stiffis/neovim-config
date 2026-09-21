@@ -8,6 +8,4 @@ return {
   { import = "astrocommunity.pack.lua" },
   -- import/override with your plugins folder
   { import = "astrocommunity.colorscheme.catppuccin" },
-  -- Import nvim-java from AstroCommunity (handles jdtls setup automatically)
-  { import = "astrocommunity.lsp.nvim-java" },
 }
