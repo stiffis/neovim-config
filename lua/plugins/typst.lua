@@ -88,8 +88,7 @@ return {
   -- ============================================================================
   {
     "kaarmu/typst.vim",
-    ft = "typst",
-    lazy = false, -- Load immediately like vimtex
+    ft = "typst", -- solo carga al abrir archivos Typst (antes: lazy = false)
     init = function()
       -- ============================================================================
       -- BASIC CONFIGURATION

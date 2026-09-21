@@ -46,8 +46,10 @@
 return {
   {
     "lervag/vimtex",
-    lazy = false,
-    config = function()
+    ft = { "tex", "plaintex", "latex" }, -- solo carga al abrir archivos LaTeX
+    -- las variables globales de vimtex deben fijarse ANTES de cargar el plugin,
+    -- por eso van en `init` (lazy lo ejecuta en el arranque).
+    init = function()
       vim.g.tex_flavor = "latex"
       vim.g.vimtex_view_method = "zathura"
 
@@ -58,13 +60,15 @@ return {
       end
 
       vim.g.vimtex_conceal_enabled = 1
-      vim.opt.conceallevel = 2
-      vim.opt.concealcursor = "nc"
       vim.g.vimtex_conceal_subscripts = 1
       vim.g.vimtex_conceal_superscripts = 1
       vim.g.vimtex_conceal_fracs = 1
       vim.g.vimtex_conceal_delims = 1
       vim.g.vimtex_conceal_greek = 1
+    end,
+    config = function()
+      vim.opt.conceallevel = 2
+      vim.opt.concealcursor = "nc"
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "tex", "plaintex", "latex" },
