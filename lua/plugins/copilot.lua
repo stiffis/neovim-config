@@ -25,8 +25,6 @@ return {
       },
     },
     init = function()
-      -- DESACTIVADO por defecto. Regla del club GPC: nada de IA en entrenamiento.
-      -- Lo prendes a mano con <Leader>ap solo cuando NO estés resolviendo competitivo.
       vim.g.copilot_enabled = false
       -- Dejar que blink.cmp maneje <Tab> (Copilot acepta con <C-j>)
       vim.g.copilot_no_tab_map = true
