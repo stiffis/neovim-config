@@ -29,6 +29,9 @@ return {
       "css",
       "java",
       "latex",
+      "bash",
+      "typst",
+      "regex",
     })
   end,
 }
