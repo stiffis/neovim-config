@@ -1,15 +1,5 @@
 return {
   {
-    "roobert/tailwindcss-colorizer-cmp.nvim",
-    lazy = true,
-    opts = {
-      color_square_width = 2,
-    },
-    config = function(_, opts)
-      require("tailwindcss-colorizer-cmp").setup(opts)
-    end,
-  },
-  {
     "NvChad/nvim-colorizer.lua",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
@@ -26,7 +16,7 @@ return {
         "svelte",
       },
       user_default_options = {
-        tailwind = true,
+        tailwind = false,
         mode = "background",
       },
     },
