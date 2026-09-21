@@ -42,6 +42,13 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
+      basedpyright = {
+        settings = {
+          basedpyright = {
+            analysis = { typeCheckingMode = "standard" },
+          },
+        },
+      },
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
       
       -- ============================================================================
