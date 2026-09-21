@@ -1,11 +1,22 @@
 return {
   "luckasRanarison/tailwind-tools.nvim",
   name = "tailwind-tools",
-  build = ":UpdateRemotePlugins",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
-    "nvim-telescope/telescope.nvim", -- optional
-    "neovim/nvim-lspconfig", -- optional
+    "nvim-telescope/telescope.nvim",
+    "neovim/nvim-lspconfig",
   },
-  opts = {}, -- your configuration
+  opts = {
+    document_color = {
+      enabled = true,
+      kind = "inline",
+      inline_symbol = "󱓻 ",
+      debounce = 200,
+    },
+    conceal = {
+      enabled = false, -- Cámbialo a true si quieres ocultar las clases largas de Tailwind
+      min_len = 25,
+      symbol = "󱏿",
+    },
+  },
 }
